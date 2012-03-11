@@ -1,5 +1,4 @@
 # The Quality Air in Israel
-#===========================
 
 * It will enable users to get the data without and requirments to install plugins etc'.
 
