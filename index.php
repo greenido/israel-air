@@ -3,6 +3,13 @@ Our code to get the data from the wonderful site of the Misrad le 'quality' of h
 
 http://www.svivaaqm.net/Default.rtl.aspx
 
+
+TODO:
+1. Use bootstrap: nav, other plugins.
+2. Add weather to another span4.
+
+
+
 -->
 <!doctype html>
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
