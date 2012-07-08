@@ -26,24 +26,26 @@ function getUrlContent($url) {
 //
 // Starting the party
 //
-$path = "http://n.sviva.gov.il/subjectsEnv/Air/AirQualityData/Pages/EnvAirForecasting.aspx";
+//$path = "http://n.sviva.gov.il/subjectsEnv/Air/AirQualityData/Pages/EnvAirForecasting.aspx";
+$path = "http://www.sviva.gov.il/subjectsEnv/SvivaAir/AirQualityData/Pages/EnvAirForecasting.aspx";
 error_log("---- path: $path ");
 
 $rawHtml = file_get_contents($path);
 // "<!---GovxMainTitle-->" get h1
-//                        123456789012345678901
-$inx1 = strpos($rawHtml, "<!---GovxMainTitle-->") + 21;
-$inx2 = strpos($rawHtml, "</h1>", $inx1);
+//                        1234567890123456789012345678901234567890
+$inx1 = strpos($rawHtml, "bigDivboxGreen1") + 16;
+$inx1 = strpos($rawHtml, "SvivaBlackTitle SvivaFontMedium", $inx1) + 33;
+$inx2 = strpos($rawHtml, "/h2", $inx1);
 $title = substr($rawHtml, $inx1, $inx2-$inx1);
 $title = strip_tags($title);
 error_log("title: $title");
 
 
-$inx1 = strpos($rawHtml, "PLAirQFDivGreenBoxCenter", $inx2);
-$inx2 = strpos($rawHtml, "PLAirQFDivWpGreenBoxBottom", $inx1);
+$inx1 = $inx2;
+$inx2 = strpos($rawHtml, "<!--End Green Box -->", $inx1);
 
 $airHtml = substr($rawHtml, $inx1, $inx2-$inx1);
-$airHtml = strip_tags($airHtml, "<p>");
+$airHtml = strip_tags($airHtml, "<p><a>");
 
 error_log($airHtml);
 

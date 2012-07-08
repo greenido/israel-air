@@ -6,7 +6,8 @@ http://www.svivaaqm.net/Default.rtl.aspx
 
 TODO:
 1. Use bootstrap: nav, other plugins.
-2. Add weather to another span4.
+2. Add weather to another span4 - http://www.worldweatheronline.com/register.aspx
+
 
 
 
@@ -75,7 +76,7 @@ TODO:
 
       <!-- Example row of columns -->
       <div class="row">
-        <div class="span6">
+        <div class="span4">
           <h2>Map</h2>
           <p>
             <a href="http://www.svivaaqm.net/Default.rtl.aspx">
@@ -85,29 +86,55 @@ TODO:
 
         </div>
 
-        <div class="span6">
+        <div class="span8">
           <h2>The Quality of the Air</h2>
           <?php
-          $path = "http://n.sviva.gov.il/subjectsEnv/Air/AirQualityData/Pages/EnvAirForecasting.aspx";
+          $path = "http://www.sviva.gov.il/subjectsEnv/SvivaAir/AirQualityData/Pages/EnvAirForecasting.aspx";
           $rawHtml = file_get_contents($path);
-          $inx1 = strpos($rawHtml, "<!---GovxMainTitle-->") + 21;
-          $inx2 = strpos($rawHtml, "</h1>", $inx1);
+          $inx1 = strpos($rawHtml, "bigDivboxGreen1") + 16;
+          $inx1 = strpos($rawHtml, "SvivaBlackTitle SvivaFontMedium", $inx1) + 33;
+          $inx2 = strpos($rawHtml, "</h2>", $inx1);
           $title = substr($rawHtml, $inx1, $inx2 - $inx1);
           $title = strip_tags($title);
           echo "<h3 dir='rtl'>$title</h3>";
 
-          $inx1 = strpos($rawHtml, "PLAirQFDivGreenBoxCenter", $inx2);
-          $inx2 = strpos($rawHtml, "PLAirQFDivWpGreenBoxBottom", $inx1);
+          $inx1 = $inx2;
+          $inx2 = strpos($rawHtml, "<!--End Green Box -->", $inx1);
 
           $airHtml = substr($rawHtml, $inx1, $inx2 - $inx1);
-          $airHtml = strip_tags($airHtml, "<p>");
-          $airHtml = str_replace("PLAirQFDivGreenBoxCenter\">", "", $airHtml);
+          $airHtml = strip_tags($airHtml, "<p><a><strong>");
           $airHtml = str_replace("GovXShortDescription", "", $airHtml);
-          $airHtml = str_replace("<p> </p>", "", $airHtml);
+          $airHtml = str_replace("יום", "<br/><br/>" . "יום", $airHtml);
+          $airHtml = str_replace("שעות", "<br/>" .  "שעות", $airHtml);
+          $airHtml = str_replace("<a href", "<li><a href", $airHtml);
           echo "<div id='airhtml' dir='rtl'>$airHtml <p><a class='btn' href='http://www.svivaaqm.net/Default.rtl.aspx' target='_blank'>More &raquo;</a></p></div>";
+//          
+//          
+//          $path = "http://n.sviva.gov.il/subjectsEnv/Air/AirQualityData/Pages/EnvAirForecasting.aspx";
+//          $rawHtml = file_get_contents($path);
+//          $inx1 = strpos($rawHtml, "<!---GovxMainTitle-->") + 21;
+//          $inx2 = strpos($rawHtml, "</h1>", $inx1);
+//          $title = substr($rawHtml, $inx1, $inx2 - $inx1);
+//          $title = strip_tags($title);
+//          echo "<h3 dir='rtl'>$title</h3>";
+//          $inx1 = strpos($rawHtml, "PLAirQFDivGreenBoxCenter", $inx2);
+//          $inx2 = strpos($rawHtml, "PLAirQFDivWpGreenBoxBottom", $inx1);
+//
+//          $airHtml = substr($rawHtml, $inx1, $inx2 - $inx1);
+//          $airHtml = strip_tags($airHtml, "<p>");
+//          $airHtml = str_replace("PLAirQFDivGreenBoxCenter\">", "", $airHtml);
+//          $airHtml = str_replace("GovXShortDescription", "", $airHtml);
+//          $airHtml = str_replace("<p> </p>", "", $airHtml);
+//          echo "<div id='airhtml' dir='rtl'>$airHtml <p><a class='btn' href='http://www.svivaaqm.net/Default.rtl.aspx' target='_blank'>More &raquo;</a></p></div>";
           ?>
 
         </div>
+      </div>
+
+      <div class="row">
+
+
+
       </div>
 
       <hr>
