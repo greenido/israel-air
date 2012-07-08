@@ -102,32 +102,28 @@ TODO:
           $inx2 = strpos($rawHtml, "<!--End Green Box -->", $inx1);
 
           $airHtml = substr($rawHtml, $inx1, $inx2 - $inx1);
+          // ugly ugly code... but I don't have time :)
           $airHtml = strip_tags($airHtml, "<p><a><strong>");
+          $airHtml = str_replace("לקראת צהרים", "" , $airHtml);
+          $airHtml = str_replace("ועד", "" , $airHtml);
           $airHtml = str_replace("GovXShortDescription", "", $airHtml);
           $airHtml = str_replace("יום", "<br/><br/>" . "יום", $airHtml);
           $airHtml = str_replace("שעות", "<br/>" .  "שעות", $airHtml);
           $airHtml = str_replace("<a href", "<li><a href", $airHtml);
-          echo "<div id='airhtml' dir='rtl'>$airHtml <p><a class='btn' href='http://www.svivaaqm.net/Default.rtl.aspx' target='_blank'>More &raquo;</a></p></div>";
-//          
-//          
-//          $path = "http://n.sviva.gov.il/subjectsEnv/Air/AirQualityData/Pages/EnvAirForecasting.aspx";
-//          $rawHtml = file_get_contents($path);
-//          $inx1 = strpos($rawHtml, "<!---GovxMainTitle-->") + 21;
-//          $inx2 = strpos($rawHtml, "</h1>", $inx1);
-//          $title = substr($rawHtml, $inx1, $inx2 - $inx1);
-//          $title = strip_tags($title);
-//          echo "<h3 dir='rtl'>$title</h3>";
-//          $inx1 = strpos($rawHtml, "PLAirQFDivGreenBoxCenter", $inx2);
-//          $inx2 = strpos($rawHtml, "PLAirQFDivWpGreenBoxBottom", $inx1);
-//
-//          $airHtml = substr($rawHtml, $inx1, $inx2 - $inx1);
-//          $airHtml = strip_tags($airHtml, "<p>");
-//          $airHtml = str_replace("PLAirQFDivGreenBoxCenter\">", "", $airHtml);
-//          $airHtml = str_replace("GovXShortDescription", "", $airHtml);
-//          $airHtml = str_replace("<p> </p>", "", $airHtml);
-//          echo "<div id='airhtml' dir='rtl'>$airHtml <p><a class='btn' href='http://www.svivaaqm.net/Default.rtl.aspx' target='_blank'>More &raquo;</a></p></div>";
+          echo "<div id='airhtml' dir='rtl'>$airHtml </div>";
           ?>
-
+          
+          <div class="row">
+            <h3 dir="rtl">מזג האויר</h3>
+            <div class="span4" dir="rtl">
+              <h4 dir="rtl">טמפרטורות</h4>
+              <img src="http://www.ims.gov.il/Ims/Map/MapRender.aspx?type=weather&LangId=1&Optional=c&Tab=Temperature">
+            </div>
+            <div class="span4" dir="rtl">
+              <h4 dir="rtl">רוח</h4>
+              <img src="http://www.ims.gov.il/Ims/Map/MapRender.aspx?type=weather&LangId=1&Optional=&Tab=Wind">
+            </div>
+          </div>
         </div>
       </div>
 
