@@ -76,17 +76,8 @@ TODO:
 
       <!-- Example row of columns -->
       <div class="row">
-        <div class="span4">
-          <h2>Map</h2>
-          <p>
-            <a href="http://www.svivaaqm.net/Default.rtl.aspx">
-              <img src="http://www.svivaaqm.net/Index_Image_Generator.aspx?REGION=-3" />
-            </a>
-          </p>
 
-        </div>
-
-        <div class="span8">
+        <div class="span5">
           <h2>The Quality of the Air</h2>
           <?php
           $path = "http://www.sviva.gov.il/subjectsEnv/SvivaAir/AirQualityData/Pages/EnvAirForecasting.aspx";
@@ -112,25 +103,34 @@ TODO:
           $airHtml = str_replace("<a href", "<li><a href", $airHtml);
           echo "<div id='airhtml' dir='rtl'>$airHtml </div>";
           ?>
-          
+         </div>
+
+        <div class="span5" dir="rtl">
+          <h2>Map</h2>
+          <p>
+            <a href="http://www.svivaaqm.net/Default.rtl.aspx">
+              <img src="http://www.svivaaqm.net/Index_Image_Generator.aspx?REGION=-3" 
+              width="360px" height="598px"/>
+            </a>
+          </p>
+        </div>
+
+
           <div class="row">
             <h3 dir="rtl">מזג האויר</h3>
-            <div class="span4" dir="rtl">
+            <div class="span5" dir="rtl">
               <h4 dir="rtl">טמפרטורות</h4>
               <img src="http://www.ims.gov.il/Ims/Map/MapRender.aspx?type=weather&LangId=1&Optional=c&Tab=Temperature">
             </div>
-            <div class="span4" dir="rtl">
+            <div class="span5" dir="rtl">
               <h4 dir="rtl">רוח</h4>
               <img src="http://www.ims.gov.il/Ims/Map/MapRender.aspx?type=weather&LangId=1&Optional=&Tab=Wind">
             </div>
           </div>
+
         </div>
-      </div>
 
-      <div class="row">
-
-
-
+        
       </div>
 
       <hr>
