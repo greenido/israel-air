@@ -3,13 +3,9 @@ Our code to get the data from the wonderful site of the Misrad le 'quality' of h
 
 http://www.svivaaqm.net/Default.rtl.aspx
 
-
 TODO:
 1. Use bootstrap: nav, other plugins.
 2. Add weather to another span4 - http://www.worldweatheronline.com/register.aspx
-
-
-
 
 -->
 <!doctype html>
@@ -115,7 +111,6 @@ TODO:
           </p>
         </div>
 
-
           <div class="row">
             <h3 dir="rtl">מזג האויר</h3>
             <div class="span5" dir="rtl">
@@ -127,16 +122,12 @@ TODO:
               <img src="http://www.ims.gov.il/Ims/Map/MapRender.aspx?type=weather&LangId=1&Optional=&Tab=Wind">
             </div>
           </div>
-
         </div>
-
-        
+       
       </div>
 
       <hr>
-
       <footer>
-
         <p>&copy; Ido Green 2012</p>
       </footer>
 
