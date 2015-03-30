@@ -7,12 +7,11 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <title>Israel Air</title>
+  <title>האוויר בישראל</title>
   <meta name="description" content="Check the (on the face) air quality in Israel">
-  <meta name="author" content="Ido Green">
+  <meta name="author" content="Ido Green | @greenido | greenido.wordpress.com">
 
-  <meta name="viewport" content="width=device-width">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">  
   <link rel="stylesheet" href="css/bootstrap.css">
   <style>
     body {
@@ -44,27 +43,22 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </a>
-        <a class="brand" href="#">Israel Air</a>
+        <a class="brand" href="#">האוויר בישראל</a>
         <div class="nav-collapse">
           <ul class="nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="http://about.me/greenido" target="_blank">About</a></li>
-            <li><a href="http://plus.ly/greenido" target="_blank">Contact</a></li>
+            <li class="active"><a href="#">ראשי</a></li>
+            <li><a href="https://ido-green.appspot.com" target="_blank">צור קשר</a></li>
             <li><div id="plusone"><g:plusone></g:plusone></div></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </div>
   </div>
-
   <div class="container">
-
-
-    <!-- Example row of columns -->
+    
     <div class="row">
-
       <div class="span5">
-        <h2>The Quality of the Air</h2>
+        <h2>איכות האוויר בישראל</h2>
         <?php
         $path = "http://www.sviva.gov.il/subjectsEnv/SvivaAir/AirQualityData/Pages/EnvAirForecasting.aspx";
         $rawHtml = file_get_contents($path);
@@ -103,7 +97,7 @@
       </div>
 
         <div class="row" dir="rtl">
-          <h3 dir="rtl">מזג האויר</h3>
+          
           <div class="span5" dir="rtl">
             <h4 dir="rtl">טמפרטורות</h4>
             <img src="http://www.ims.gov.il/Ims/Map/MapRender.aspx?type=weather&LangId=1&Optional=c&Tab=Temperature">
@@ -119,7 +113,11 @@
 
     <hr>
     <footer>
-      <p>&copy; Ido Green 2012</p>
+       <div class="row" dir="rtl">
+          <div class="span5" dir="rtl">
+            <p>&copy; <a href="https://ido-green.appspot.com">Ido Green</a> 2012-2015</p>
+          </div>
+      </div>
     </footer>
 
   </div> <!-- /container -->
