@@ -95,10 +95,10 @@
         <h3>מפת איכות אוויר</h3>
           <iframe id="ifrMap" height="600" width="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" title="מפת המפעלים המדווחים למפלס ממוינים לפי ענפי פעילות" src="http://beta.govmap.gov.il/map.aspx?c=eF08XGXO0ta3TQtFnHkc8w%3d%3d%7C5yAAYB898T4%2b6C1wazlNPA%3d%3d&amp;showBackBtn=1&amp;showNavBtn=1&amp;AllowDrag=1&amp;in=1&amp;height=650&amp;width=500&amp;z=0.5&amp;b=0&amp;mapMode=1&amp;lay=AQ_realtime"></iframe>
         <div class="row" >
-          <div class="span3"> <img src="img/air-q-low.png" alt="air polution is low"> </div>
-          <div class="span3"> <img src="img/air-q-med.png" alt="air polution is med"> </div>
-          <div class="span3"> <img src="img/air-q-high.png" alt="air polution is high"> </div>
-          <div class="span3"> <img src="img/air-q-very-high.png" alt="air polution is very high"> </div>
+          <div class="span3"> <img src="air-q-low.png" alt="air polution is low"> </div>
+          <div class="span3"> <img src="air-q-med.png" alt="air polution is med"> </div>
+          <div class="span3"> <img src="air-q-high.png" alt="air polution is high"> </div>
+          <div class="span3"> <img src="air-q-very-high.png" alt="air polution is very high"> </div>
         </div>
       </div>
 
