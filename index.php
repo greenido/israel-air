@@ -103,12 +103,7 @@ TODO:
 
         <div class="span5" dir="rtl">
           <h2>Map</h2>
-          <p>
-            <a href="http://www.svivaaqm.net/Default.rtl.aspx">
-              <img src="http://www.svivaaqm.net/Index_Image_Generator.aspx?REGION=-3" 
-              width="360px" height="598px"/>
-            </a>
-          </p>
+          
         </div>
 
           <div class="row">
