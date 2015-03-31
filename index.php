@@ -7,12 +7,11 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <title>Israel Air</title>
+  <title>האוויר בישראל</title>
   <meta name="description" content="Check the (on the face) air quality in Israel">
-  <meta name="author" content="Ido Green">
+  <meta name="author" content="Ido Green | @greenido | greenido.wordpress.com">
 
-  <meta name="viewport" content="width=device-width">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">  
   <link rel="stylesheet" href="css/bootstrap.css">
   <style>
     body {
@@ -44,50 +43,45 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </a>
-        <a class="brand" href="#">Israel Air</a>
+        <a class="brand" href="#">האוויר בישראל</a>
         <div class="nav-collapse">
           <ul class="nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="http://about.me/greenido" target="_blank">About</a></li>
-            <li><a href="http://plus.ly/greenido" target="_blank">Contact</a></li>
+            <li class="active"><a href="#">ראשי</a></li>
+            <li><a href="https://ido-green.appspot.com" target="_blank">צור קשר</a></li>
             <li><div id="plusone"><g:plusone></g:plusone></div></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </div>
   </div>
-
   <div class="container">
-
-
-    <!-- Example row of columns -->
+    
     <div class="row">
-
       <div class="span5">
-        <h2>The Quality of the Air</h2>
+        <h2>איכות האוויר בישראל</h2>
         <?php
-        $path = "http://www.sviva.gov.il/subjectsEnv/SvivaAir/AirQualityData/Pages/EnvAirForecasting.aspx";
-        $rawHtml = file_get_contents($path);
-        $inx1 = strpos($rawHtml, "bigDivboxGreen1") + 16;
-        $inx1 = strpos($rawHtml, "SvivaBlackTitle SvivaFontMedium", $inx1) + 33;
-        $inx2 = strpos($rawHtml, "</h2>", $inx1);
-        $title = substr($rawHtml, $inx1, $inx2 - $inx1);
-        $title = strip_tags($title);
-        echo "<h3 dir='rtl'>$title</h3>";
+          $path = "http://www.sviva.gov.il/subjectsEnv/SvivaAir/AirQualityData/Pages/EnvAirForecasting.aspx";
+          $rawHtml = file_get_contents($path);
+          $inx1 = strpos($rawHtml, "bigDivboxGreen1") + 16;
+          $inx1 = strpos($rawHtml, "SvivaBlackTitle SvivaFontMedium", $inx1) + 33;
+          $inx2 = strpos($rawHtml, "</h2>", $inx1);
+          $title = substr($rawHtml, $inx1, $inx2 - $inx1);
+          $title = strip_tags($title);
+          echo "<h3 dir='rtl'>$title</h3>";
 
-        $inx1 = $inx2;
-        $inx2 = strpos($rawHtml, "<!--End Green Box -->", $inx1);
+          $inx1 = $inx2;
+          $inx2 = strpos($rawHtml, "<!--End Green Box -->", $inx1);
 
-        $airHtml = substr($rawHtml, $inx1, $inx2 - $inx1);
-        // ugly ugly code... but I don't have time :)
-        $airHtml = strip_tags($airHtml, "<p><a><strong>");
-        $airHtml = str_replace("לקראת צהרים", "" , $airHtml);
-        $airHtml = str_replace("ועד", "" , $airHtml);
-        $airHtml = str_replace("GovXShortDescription", "", $airHtml);
-        $airHtml = str_replace("יום", "<br/><br/>" . "יום", $airHtml);
-        $airHtml = str_replace("שעות", "<br/>" .  "שעות", $airHtml);
-        $airHtml = str_replace("<a href", "<li><a href", $airHtml);
-        echo "<div id='airhtml' dir='rtl'>$airHtml </div>";
+          $airHtml = substr($rawHtml, $inx1, $inx2 - $inx1);
+          // ugly ugly code... but I don't have time :)
+          $airHtml = strip_tags($airHtml, "<p><a><strong>");
+          $airHtml = str_replace("לקראת צהרים", "" , $airHtml);
+          $airHtml = str_replace("ועד", "" , $airHtml);
+          $airHtml = str_replace("GovXShortDescription", "", $airHtml);
+          $airHtml = str_replace("יום", "<br/><br/>" . "יום", $airHtml);
+          $airHtml = str_replace("שעות", "<br/>" .  "שעות", $airHtml);
+          $airHtml = str_replace("<a href", "<li><a href", $airHtml);
+          echo "<div id='airhtml' dir='rtl'>$airHtml </div>";
         ?>
        </div>
 
@@ -95,15 +89,15 @@
         <h3>מפת איכות אוויר</h3>
           <iframe id="ifrMap" height="600" width="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" title="מפת המפעלים המדווחים למפלס ממוינים לפי ענפי פעילות" src="http://beta.govmap.gov.il/map.aspx?c=eF08XGXO0ta3TQtFnHkc8w%3d%3d%7C5yAAYB898T4%2b6C1wazlNPA%3d%3d&amp;showBackBtn=1&amp;showNavBtn=1&amp;AllowDrag=1&amp;in=1&amp;height=650&amp;width=500&amp;z=0.5&amp;b=0&amp;mapMode=1&amp;lay=AQ_realtime"></iframe>
         <div class="row" >
-          <div class="span3"> <img src="air-q-low.png" alt="air polution is low"> </div>
-          <div class="span3"> <img src="air-q-med.png" alt="air polution is med"> </div>
-          <div class="span3"> <img src="air-q-high.png" alt="air polution is high"> </div>
-          <div class="span3"> <img src="air-q-very-high.png" alt="air polution is very high"> </div>
+          <div class="span3"> <img src="air-q-low.png" alt="Air polution is low"> </div>
+          <div class="span3"> <img src="air-q-med.png" alt="Air polution is med"> </div>
+          <div class="span3"> <img src="air-q-high.png" alt="Air polution is high"> </div>
+          <div class="span3"> <img src="air-q-very-high.png" alt="Air polution is very high"> </div>
         </div>
       </div>
 
         <div class="row" dir="rtl">
-          <h3 dir="rtl">מזג האויר</h3>
+          
           <div class="span5" dir="rtl">
             <h4 dir="rtl">טמפרטורות</h4>
             <img src="http://www.ims.gov.il/Ims/Map/MapRender.aspx?type=weather&LangId=1&Optional=c&Tab=Temperature">
@@ -116,10 +110,13 @@
       </div>
      
     </div>
-
     <hr>
     <footer>
-      <p>&copy; Ido Green 2012</p>
+       <div class="row" dir="rtl">
+          <div class="span5" dir="rtl">
+            <h4>&copy; <a href="https://ido-green.appspot.com">Ido Green</a> 2012-2015</h4>
+          </div>
+      </div>
     </footer>
 
   </div> <!-- /container -->
