@@ -60,28 +60,28 @@
       <div class="span5">
         <h2>איכות האוויר בישראל</h2>
         <?php
-        $path = "http://www.sviva.gov.il/subjectsEnv/SvivaAir/AirQualityData/Pages/EnvAirForecasting.aspx";
-        $rawHtml = file_get_contents($path);
-        $inx1 = strpos($rawHtml, "bigDivboxGreen1") + 16;
-        $inx1 = strpos($rawHtml, "SvivaBlackTitle SvivaFontMedium", $inx1) + 33;
-        $inx2 = strpos($rawHtml, "</h2>", $inx1);
-        $title = substr($rawHtml, $inx1, $inx2 - $inx1);
-        $title = strip_tags($title);
-        echo "<h3 dir='rtl'>$title</h3>";
+          $path = "http://www.sviva.gov.il/subjectsEnv/SvivaAir/AirQualityData/Pages/EnvAirForecasting.aspx";
+          $rawHtml = file_get_contents($path);
+          $inx1 = strpos($rawHtml, "bigDivboxGreen1") + 16;
+          $inx1 = strpos($rawHtml, "SvivaBlackTitle SvivaFontMedium", $inx1) + 33;
+          $inx2 = strpos($rawHtml, "</h2>", $inx1);
+          $title = substr($rawHtml, $inx1, $inx2 - $inx1);
+          $title = strip_tags($title);
+          echo "<h3 dir='rtl'>$title</h3>";
 
-        $inx1 = $inx2;
-        $inx2 = strpos($rawHtml, "<!--End Green Box -->", $inx1);
+          $inx1 = $inx2;
+          $inx2 = strpos($rawHtml, "<!--End Green Box -->", $inx1);
 
-        $airHtml = substr($rawHtml, $inx1, $inx2 - $inx1);
-        // ugly ugly code... but I don't have time :)
-        $airHtml = strip_tags($airHtml, "<p><a><strong>");
-        $airHtml = str_replace("לקראת צהרים", "" , $airHtml);
-        $airHtml = str_replace("ועד", "" , $airHtml);
-        $airHtml = str_replace("GovXShortDescription", "", $airHtml);
-        $airHtml = str_replace("יום", "<br/><br/>" . "יום", $airHtml);
-        $airHtml = str_replace("שעות", "<br/>" .  "שעות", $airHtml);
-        $airHtml = str_replace("<a href", "<li><a href", $airHtml);
-        echo "<div id='airhtml' dir='rtl'>$airHtml </div>";
+          $airHtml = substr($rawHtml, $inx1, $inx2 - $inx1);
+          // ugly ugly code... but I don't have time :)
+          $airHtml = strip_tags($airHtml, "<p><a><strong>");
+          $airHtml = str_replace("לקראת צהרים", "" , $airHtml);
+          $airHtml = str_replace("ועד", "" , $airHtml);
+          $airHtml = str_replace("GovXShortDescription", "", $airHtml);
+          $airHtml = str_replace("יום", "<br/><br/>" . "יום", $airHtml);
+          $airHtml = str_replace("שעות", "<br/>" .  "שעות", $airHtml);
+          $airHtml = str_replace("<a href", "<li><a href", $airHtml);
+          echo "<div id='airhtml' dir='rtl'>$airHtml </div>";
         ?>
        </div>
 
@@ -89,10 +89,10 @@
         <h3>מפת איכות אוויר</h3>
           <iframe id="ifrMap" height="600" width="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" title="מפת המפעלים המדווחים למפלס ממוינים לפי ענפי פעילות" src="http://beta.govmap.gov.il/map.aspx?c=eF08XGXO0ta3TQtFnHkc8w%3d%3d%7C5yAAYB898T4%2b6C1wazlNPA%3d%3d&amp;showBackBtn=1&amp;showNavBtn=1&amp;AllowDrag=1&amp;in=1&amp;height=650&amp;width=500&amp;z=0.5&amp;b=0&amp;mapMode=1&amp;lay=AQ_realtime"></iframe>
         <div class="row" >
-          <div class="span3"> <img src="air-q-low.png" alt="air polution is low"> </div>
-          <div class="span3"> <img src="air-q-med.png" alt="air polution is med"> </div>
-          <div class="span3"> <img src="air-q-high.png" alt="air polution is high"> </div>
-          <div class="span3"> <img src="air-q-very-high.png" alt="air polution is very high"> </div>
+          <div class="span3"> <img src="air-q-low.png" alt="Air polution is low"> </div>
+          <div class="span3"> <img src="air-q-med.png" alt="Air polution is med"> </div>
+          <div class="span3"> <img src="air-q-high.png" alt="Air polution is high"> </div>
+          <div class="span3"> <img src="air-q-very-high.png" alt="Air polution is very high"> </div>
         </div>
       </div>
 
